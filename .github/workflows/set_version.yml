@@ -1,7 +1,7 @@
 name: set_version
 on: [push, pull_request]
 jobs:
-  publish:
+  set_version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -10,5 +10,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "Published Changes"
+          git commit -m "Workflow-initiated version update"
           git push
