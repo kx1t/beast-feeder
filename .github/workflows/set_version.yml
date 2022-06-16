@@ -1,7 +1,11 @@
 name: set_version
+
 on: [push, pull_request]
+
 jobs:
-  build:
-  runs-on: ubuntu-latest
-  run: |
-    sed  -r "s/^(\s*BUILD\s*=\s*'[0-9]+.)([0-9]+)(.*)$/\1$(TZ=UTC date +%y%m%d-%H%M)\3/g" beast-feeder.py
+  set_version:
+    name: Set beast-feeder version
+    runs-on: ubuntu-latest
+    steps:
+      name: Use sed to insert date
+      run: sed  -r "s/^(\s*BUILD\s*=\s*'[0-9]+.)([0-9]+)(.*)$/\1$(TZ=UTC date +%y%m%d-%H%M)\3/g" beast-feeder.py
