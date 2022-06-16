@@ -1,6 +1,4 @@
 name: set_version
-
-name: My Workflow
 on: [push, pull_request]
 jobs:
   build:
